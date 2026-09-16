@@ -106,10 +106,7 @@ def get_user_by_id(user_id):
         cursor.close()
         conn.close()
 
-
-# ===========================================================================
 # MOOD HELPERS  (mood options lookup)
-# ===========================================================================
 
 def get_all_moods():
     """
@@ -133,10 +130,7 @@ def get_all_moods():
         cursor.close()
         conn.close()
 
-
-# ===========================================================================
 # MOOD LOG HELPERS  (standalone mood logging – separate from journals)
-# ===========================================================================
 
 def create_mood_log(user_id, mood, tag):
     """
