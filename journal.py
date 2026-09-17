@@ -27,15 +27,12 @@ from utils.suggestion import SuggestionService      # Rule-based suggestion engi
 from agents.pipeline import run_pipeline             # Agentic AI pipeline
 import jwt   # For catching JWT exceptions
 
-# ---------------------------------------------------------------------------
 # Blueprint setup
-# ---------------------------------------------------------------------------
+
 journal_bp = Blueprint("journal", __name__)
 
-
-# ---------------------------------------------------------------------------
 # HELPER: get_current_user_id
-# ---------------------------------------------------------------------------
+
 def get_current_user_id():
     """
     Reads the Authorization header, verifies the JWT token, and returns
@@ -49,7 +46,6 @@ def get_current_user_id():
     """
     auth_header = request.headers.get("Authorization", "")
 
-    # The header format is "Bearer <token>", so we split on the space
     parts = auth_header.split(" ")
     if len(parts) != 2 or parts[0].lower() != "bearer":
         return None
@@ -57,15 +53,14 @@ def get_current_user_id():
     token = parts[1]
     try:
         payload = decode_token(token)
-        return int(payload["sub"])   # "sub" holds the user's database ID
+        return int(payload["sub"])   
     except jwt.ExpiredSignatureError:
         return None   # Token has expired – user must log in again
     except jwt.InvalidTokenError:
         return None   # Token is tampered or malformed
 
 
-# ---------------------------------------------------------------------------
-# ROUTE: POST /journal/
+# ROUTE: POST /journal
 # ---------------------------------------------------------------------------
 @journal_bp.route("/", methods=["POST"])
 def create_entry():
@@ -95,7 +90,7 @@ def create_entry():
 
     content = data.get("content", "").strip()
     title   = data.get("title",   "").strip()
-    mood_id = data.get("mood_id", None)   # Optional
+    mood_id = data.get("mood_id", None)  
 
     # Content is the only required field
     if not content:
