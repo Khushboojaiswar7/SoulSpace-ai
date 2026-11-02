@@ -68,7 +68,7 @@ The study will compare user emotional and behavioural responses to AI-generated 
 ## 📁 Project Structure
 
 ```
-Final year project/
+Soulspace-ai/
 ├── backend/                        # Flask API server
 │   ├── main.py                     # Entry point — creates the Flask app
 │   ├── routes.py                   # Blueprint registration
@@ -99,7 +99,7 @@ Final year project/
 │   ├── .env.example                # Template for environment variables
 │   └── .env                        # Your local secrets (never commit this!)
 │
-└── mindmate/                       # React + Vite frontend (SoulSpace UI)
+└── Soulspace/                       # React + Vite frontend (SoulSpace UI)
     ├── src/
     │   ├── App.jsx                 # Root component & routes
     │   ├── main.jsx                # ReactDOM entry point
@@ -145,7 +145,7 @@ Final year project/
 
 ```bash
 git clone <your-repo-url>
-cd "Final year project"
+cd "Soulspace-ai"
 ```
 
 ### 2. Create the PostgreSQL database
@@ -201,7 +201,7 @@ The server starts at **http://localhost:5000**. All database tables are created 
 ### 6. Install frontend dependencies
 
 ```bash
-cd ../mindmate
+cd ../soulspace
 npm install
 ```
 
